@@ -46,3 +46,15 @@ export const FETCH_STARTUP_VIEWS_QUERY = defineQuery(`
         views
     }
 `)
+
+export const FETCH_AUTHOR_BY_ID_QUERY = defineQuery(`
+    *[_type == 'author' && _id == $id][0] {
+        _id,
+        id,
+        name,
+        username,
+        email,
+        image,
+        bio
+    }
+`)
