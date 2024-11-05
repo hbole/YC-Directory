@@ -1,5 +1,5 @@
 import React from 'react'
-import {formatDate} from "@/lib/utils";
+import { formatDate} from "@/lib/utils";
 import {EyeIcon} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -44,7 +44,7 @@ const StartupCard = ({ post } : { post: StartupTypeCard }) => {
                     </Link>
                 </div>
                 <Link href={`/user/${author?._id}`}>
-                    <Image src={author?.image || ''} alt="placeholder" width={48} height={48} className="rounded-full" />
+                    <Image src={author?.image || ''} alt={author?.name || ""} width={48} height={48} className="rounded-full" />
                 </Link>
             </div>
             <Link href={`/startup/${_id}`}>
@@ -67,4 +67,5 @@ const StartupCard = ({ post } : { post: StartupTypeCard }) => {
         </li>
     )
 }
+
 export default StartupCard
