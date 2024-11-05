@@ -14,8 +14,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                 id: profile?.id,
             });
 
-            console.log('cool', profile, user);
-
             if(!existingUser) {
                 await writeClient.create({
                     _type: "author",
@@ -31,7 +29,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             return true;
         },
         async jwt({ token, account, profile }) {
-            console.log(" account ", account, profile)
             if(account && profile) {
                 const user = await client
                     .withConfig({ useCdn: false })
