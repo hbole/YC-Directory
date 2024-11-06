@@ -44,7 +44,7 @@ const StartupCard = ({ post } : { post: StartupTypeCard }) => {
                     </Link>
                 </div>
                 <Link href={`/user/${author?._id}`}>
-                    <Image src={author?.image || ''} alt={author?.name || ""} width={48} height={48} className="rounded-full" />
+                    <Image src={author?.image || "https://kamayo.in/wp-content/themes/koji/assets/images/default-fallback-image.png"} alt={author?.name || "none"} width={48} height={48} className="rounded-full" />
                 </Link>
             </div>
             <Link href={`/startup/${_id}`}>

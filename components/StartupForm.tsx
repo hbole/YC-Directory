@@ -18,7 +18,6 @@ const StartupForm = () => {
     const router = useRouter();
 
     const handleFormSubmit = async (prevState: any, formData: FormData) => {
-        // console.log(" Here ");
         try {
             const formValues = {
                 title: formData.get("title") as string,
@@ -31,7 +30,7 @@ const StartupForm = () => {
             await formSchema.parseAsync(formValues);
 
             const result = await createPitch(prevState, formData, pitch);
-            console.log(result);
+
             if(result.status === "SUCCESS") {
                 toast({
                     title: "Success",
@@ -69,8 +68,6 @@ const StartupForm = () => {
         error: "",
         status: "INITIAL"
     });
-
-    console.log('error', errors);
 
     return (
         <form action={formAction} className="startup-form">

@@ -17,7 +17,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             if(!existingUser) {
                 await writeClient.create({
                     _type: "author",
-                    id: profile?._id,
+                    id: profile?.id,
                     name: user.name,
                     username: profile?.login,
                     email: user.email,
@@ -40,7 +40,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             return token;
         },
         async session({ session, token }) {
-            Object.assign(session, { id: token.id })
+            Object.assign(session?.user, { id: token.id });
             return session;
         }
     }
